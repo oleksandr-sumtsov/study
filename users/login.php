@@ -7,7 +7,6 @@ $users = getUsersFromFile();
 
 foreach ($users as $user) {
     if ($user['login'] == $login) {
-
         if ($user['password'] == $password) {
             header('Location: ' . PATH . 'login-success.html');
             die;
