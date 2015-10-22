@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        jQuery(document).on('ready', function(){
+            jQuery('#link').on('click', function(e) {
+                jQuery.ajax({
+                    method: 'get',
+                    url: 'http://study/ajax/test-length.php',
+                    data: {
+                        text: jQuery('#test').val()
+                    },
+                    success: function(response) {
+                        jQuery('#length').html(response);
+                        jQuery('p').show();
+                    }
+                });
+                e.preventDefault();
+            });
+
+        })
+    </script>
+</head>
+<body>
+<form>
+    <input type="text" id="test" /><br>
+    <a href="#" id="link">Проверить длинну</a><br>
+    <p style="display: none;">Длинна текста равна <span id="length"></span></p>
+</form>
+</body>
+</html>
